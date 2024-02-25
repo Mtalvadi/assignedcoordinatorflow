@@ -1,18 +1,30 @@
-# Salesforce DX Project: Next Steps
+# Task - Change Owner to Assigned Coordinator
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Use Case : Based on the picklist value in “Assigned Coordinator” custom fields on Task object,  “Assigned To” field should be updated to the user with the same name as in the picklist value.
 
-## How Do You Plan to Deploy Your Changes?
+![image](https://github.com/Mtalvadi/assignedcoordinatorflow/assets/83495051/cc1297f0-ab0d-4f87-bf5f-68a2fc212b0c)
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Pre-requisite :
 
-## Configure Your Salesforce DX Project
+-	Custom field named - “Assigned Coordinator” of picklist data type is created on the Task object (in the terms of backend, all the configuration related to Task are done on the Activity object).
+-	Two users are created to test the automation. Here, the users named as - “Bob Apples” & “Tina Apples” are created.
+-	Picklist values in the Assigned Coordinator field will contain the exact same value as the user created. Here, Bob Apples & Tina Apples are two picklist values in the Assigned Coordinator field.
+-	Record triggered type (Task - Change Owner to Assigned Coordinator) flow is configured and activated.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## Solution/Automation : 
 
-## Read All About It
+1. After 2 users & exact same picklist values are created in the Assigned Coordinator field, Go to any account and create a new task under Activity tab.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+![image](https://github.com/Mtalvadi/assignedcoordinatorflow/assets/83495051/fba5149e-d7a7-4290-8463-53fb7c842c89)
+
+2. While creating the task, make sure the Assigned To field value is different than the 2 users we have created to test this automation.
+
+![image](https://github.com/Mtalvadi/assignedcoordinatorflow/assets/83495051/47c4228d-05da-4817-a1ef-a3094dcee7cb)
+
+3. After task is created, update the Assigned Coordinator field value to either of the users created.
+
+![image](https://github.com/Mtalvadi/assignedcoordinatorflow/assets/83495051/23745747-d5bd-41c6-a83c-313744865c7e)
+
+4. Once updated, you will see that the “Assigned To” value would be updated exactly to the “Assigned Coordinator” value.
+
+![image](https://github.com/Mtalvadi/assignedcoordinatorflow/assets/83495051/8946cc2e-a479-4fdf-b76c-5aa948e858c8)
